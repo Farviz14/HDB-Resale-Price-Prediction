@@ -49,7 +49,8 @@ box_css = f'''
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #000000; /* Set the background to black */
+    color: #ffffff; /* Set text color to white */
     margin-bottom: 20px;
 }}
 </style>
