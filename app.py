@@ -54,7 +54,7 @@ expected_feature_order = [
     'storey_category_Mid Storey', 'storey_category_High Storey', 'lease_remaining'
 ]
 
-st.title("HDB Resale Price Prediction")
+st.title("🏠 HDB Resale Price Prediction")
 
 # Description
 st.write("""
@@ -63,23 +63,23 @@ Fill in the required details, and the model will predict the estimated price for
 """)
 
 # Input features
-st.header("Enter HDB Information")
-floor_area = st.number_input("Floor Area (sqm)", min_value=40.0, max_value=150.0, step=1.0)
-town = st.selectbox("Town", [
+st.sidebar.header("Enter HDB Info")
+floor_area = st.sidebar.number_input("Floor Area (sqm)", min_value=40.0, max_value=150.0, step=1.0)
+town = st.sidebar.selectbox("Town", [
     'ANG MO KIO', 'BEDOK', 'BISHAN', 'BUKIT BATOK', 'BUKIT MERAH', 'BUKIT TIMAH',
     'CENTRAL AREA', 'CHOA CHU KANG', 'CLEMENTI', 'GEYLANG', 'HOUGANG',
     'JURONG EAST', 'JURONG WEST', 'KALLANG/WHAMPOA', 'MARINE PARADE', 'PASIR RIS',
     'PUNGGOL', 'QUEENSTOWN', 'SEMBAWANG', 'SENGKANG', 'SERANGOON', 'TAMPINES',
     'TOA PAYOH', 'WOODLANDS', 'YISHUN'
 ])
-flat_type = st.selectbox("Flat Type", ["1 ROOM", "2 ROOM", "3 ROOM", "4 ROOM", "5 ROOM", "EXECUTIVE", "MULTI GENERATION"])
-flat_model = st.selectbox("Flat Model", [
+flat_type = st.sidebar.selectbox("Flat Type", ["1 ROOM", "2 ROOM", "3 ROOM", "4 ROOM", "5 ROOM", "EXECUTIVE", "MULTI GENERATION"])
+flat_model = st.sidebar.selectbox("Flat Model", [
     'IMPROVED', 'NEW GENERATION', 'STANDARD', 'MODEL A', 'SIMPLIFIED',
     'MODEL A-MAISONETTE', 'MAISONETTE', 'IMPROVED-MAISONETTE', 'APARTMENT',
     'TERRACE', 'PREMIUM APARTMENT', '2-ROOM', 'MULTI GENERATION'
 ])
-lease_remaining = st.slider("Lease Remaining (Years)", min_value=70, max_value=99, step=1)
-storey_category = st.selectbox("Storey Category", ["Low Storey", "Mid Storey", "High Storey"])
+lease_remaining = st.sidebar.slider("Lease Remaining (Years)", min_value=70, max_value=99, step=1)
+storey_category = st.sidebar.selectbox("Storey Category", ["Low Storey", "Mid Storey", "High Storey"])
 
 # Display user inputs
 st.subheader("Your Inputs")
