@@ -46,6 +46,7 @@ overlay_css = f'''
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin-top: 20px; /* Add spacing above the grid */
 }}
 .grid-item {{
     padding: 10px;
