@@ -46,7 +46,6 @@ overlay_css = f'''
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    margin-top: 20px; /* Add spacing above the grid */
 }}
 .grid-item {{
     padding: 10px;
@@ -113,7 +112,6 @@ st.markdown(f'''
     <div class="grid-item"><strong>Lease Remaining (Years):</strong> {lease_remaining}</div>
     <div class="grid-item"><strong>Storey Category:</strong> {storey_category}</div>
 </div>
-<div></div>
 ''', unsafe_allow_html=True)
 
 # Mapping towns to regions
