@@ -37,8 +37,27 @@ overlay_css = f'''
 </style>
 '''
 
-# Apply the background image and overlay
+# CSS for input box styling and sidebar resizing
+box_css = f'''
+<style>
+.st-sidebar {{
+    width: 300px; /* Adjust the sidebar width */
+    resize: horizontal; /* Allow resizing */
+    overflow: auto; /* Enable scrolling if necessary */
+}}
+.input-box {{
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}}
+</style>
+'''
+
+# Apply the background image, overlay, and custom styling
 st.markdown(overlay_css, unsafe_allow_html=True)
+st.markdown(box_css, unsafe_allow_html=True)
 
 # Load the trained model
 model = joblib.load("ResalePrice_compressed.pkl")
@@ -81,14 +100,18 @@ flat_model = st.sidebar.selectbox("Flat Model", [
 lease_remaining = st.sidebar.slider("Lease Remaining (Years)", min_value=70, max_value=99, step=1)
 storey_category = st.sidebar.selectbox("Storey Category", ["Low Storey", "Mid Storey", "High Storey"])
 
-# Display user inputs
+# Display user inputs in a styled box
 st.subheader("Your Inputs")
-st.write(f"**Floor Area (sqm):** {floor_area}")
-st.write(f"**Town:** {town}")
-st.write(f"**Flat Type:** {flat_type}")
-st.write(f"**Flat Model:** {flat_model}")
-st.write(f"**Lease Remaining (Years):** {lease_remaining}")
-st.write(f"**Storey Category:** {storey_category}")
+st.markdown(f'''
+<div class="input-box">
+    <p><strong>Floor Area (sqm):</strong> {floor_area}</p>
+    <p><strong>Town:</strong> {town}</p>
+    <p><strong>Flat Type:</strong> {flat_type}</p>
+    <p><strong>Flat Model:</strong> {flat_model}</p>
+    <p><strong>Lease Remaining (Years):</strong> {lease_remaining}</p>
+    <p><strong>Storey Category:</strong> {storey_category}</p>
+</div>
+''', unsafe_allow_html=True)
 
 # Mapping towns to regions
 region_map = {
