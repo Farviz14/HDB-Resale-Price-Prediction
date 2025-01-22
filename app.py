@@ -34,17 +34,6 @@ overlay_css = f'''
     background-color: rgba(0, 255, 0, 0.5); /* Adjust the transparency and color */
     z-index: -1; /* Send it behind other elements */
 }}
-</style>
-'''
-
-# CSS for input box styling and sidebar resizing
-box_css = f'''
-<style>
-.st-sidebar {{
-    width: 300px; /* Adjust the sidebar width */
-    resize: horizontal; /* Allow resizing */
-    overflow: auto; /* Enable scrolling if necessary */
-}}
 .input-box {{
     border: 1px solid #ccc;
     padding: 15px;
@@ -53,24 +42,23 @@ box_css = f'''
     color: #ffffff; /* Set text color to white */
     margin-bottom: 20px;
 }}
-.grid-container {
+.grid-container {{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-}
-.grid-item {
+}}
+.grid-item {{
     padding: 10px;
     background-color: #000000;
     color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 10px;
-}
+}}
 </style>
 '''
 
 # Apply the background image, overlay, and custom styling
 st.markdown(overlay_css, unsafe_allow_html=True)
-st.markdown(box_css, unsafe_allow_html=True)
 
 # Load the trained model
 model = joblib.load("ResalePrice_compressed.pkl")
