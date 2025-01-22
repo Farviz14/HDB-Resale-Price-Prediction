@@ -53,6 +53,18 @@ box_css = f'''
     color: #ffffff; /* Set text color to white */
     margin-bottom: 20px;
 }}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.grid-item {
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
 </style>
 '''
 
@@ -101,16 +113,16 @@ flat_model = st.sidebar.selectbox("Flat Model", [
 lease_remaining = st.sidebar.slider("Lease Remaining (Years)", min_value=70, max_value=99, step=1)
 storey_category = st.sidebar.selectbox("Storey Category", ["Low Storey", "Mid Storey", "High Storey"])
 
-# Display user inputs in a styled box
-st.subheader("Your Inputs")
+# Display user inputs in a grid layout
+st.subheader("Your Selection")
 st.markdown(f'''
-<div class="input-box">
-    <p><strong>Floor Area (sqm):</strong> {floor_area}</p>
-    <p><strong>Town:</strong> {town}</p>
-    <p><strong>Flat Type:</strong> {flat_type}</p>
-    <p><strong>Flat Model:</strong> {flat_model}</p>
-    <p><strong>Lease Remaining (Years):</strong> {lease_remaining}</p>
-    <p><strong>Storey Category:</strong> {storey_category}</p>
+<div class="grid-container">
+    <div class="grid-item"><strong>Floor Area (sqm):</strong> {floor_area}</div>
+    <div class="grid-item"><strong>Town:</strong> {town}</div>
+    <div class="grid-item"><strong>Flat Type:</strong> {flat_type}</div>
+    <div class="grid-item"><strong>Flat Model:</strong> {flat_model}</div>
+    <div class="grid-item"><strong>Lease Remaining (Years):</strong> {lease_remaining}</div>
+    <div class="grid-item"><strong>Storey Category:</strong> {storey_category}</div>
 </div>
 ''', unsafe_allow_html=True)
 
