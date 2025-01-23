@@ -98,7 +98,7 @@ h2 {{
 }}
 
 .output-container {{
-    background-color: rgba(144, 238, 144, 0.8); /* Lighter green */
+    background-color: #90EE90; /* Solid light green */
     color: black; /* Black text color */
     font-size: 24px;
     font-weight: bold;
