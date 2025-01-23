@@ -77,7 +77,7 @@ button:hover {{
 }}
 
 h1 {{
-    color: black;
+    color: white;
 }}
 
 h2 {{
