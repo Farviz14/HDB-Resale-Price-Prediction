@@ -31,28 +31,70 @@ overlay_css = f'''
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 255, 0, 0.5); /* Adjust the transparency and color */
+    background-color: rgba(0, 0, 0, 0.5);  /* Darker overlay for better readability */
     z-index: -1; /* Send it behind other elements */
 }}
+
 .input-box {{
     border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #000000; /* Set the background to black */
-    color: #ffffff; /* Set text color to white */
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #222222; /* Dark background */
+    color: #ffffff; /* White text color */
     margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
 }}
+
 .grid-container {{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 20px;
+    margin-bottom: 30px;
 }}
+
 .grid-item {{
-    padding: 10px;
-    background-color: #000000;
+    padding: 15px;
+    background-color: #333333;
     color: #ffffff;
-    border: 1px solid #ccc;
+    border: 1px solid #666666;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Box shadow */
+}}
+
+button {{
+    background-color: #FF5733; /* Bright orange color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}}
+
+button:hover {{
+    background-color: #FF4500; /* Darker shade on hover */
+}}
+
+h1 {{
+    color: white;
+}}
+
+h2 {{
+    color: white;
+}}
+
+.stSidebar {{
+    background-color: #444444; /* Dark sidebar */
+}}
+
+.stSidebar .stTextInput input, .stSidebar .stSelectbox select {{
+    background-color: #555555;  /* Dark background for inputs */
+    color: white;
+}}
+
+.stSidebar .stSlider input {{
+    background-color: #FF5733; /* Slider color */
 }}
 </style>
 '''
