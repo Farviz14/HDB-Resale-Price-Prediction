@@ -96,6 +96,19 @@ h2 {{
 .stSidebar .stSlider input {{
     background-color: #FF5733; /* Slider color */
 }}
+
+.output-container {{
+    background-color: rgba(0, 255, 0, 0.6); /* Semi-transparent green background */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}}
 </style>
 '''
 
@@ -200,6 +213,6 @@ input_df = input_df[expected_feature_order]
 if st.button("Predict"):
     try:
         prediction = model.predict(input_df)
-        st.success(f"The estimated resale price is: ${prediction[0]:,.2f}")
+        st.markdown(f'<div class="output-container">The estimated resale price is: ${prediction[0]:,.2f}</div>', unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error during prediction: {e}")
