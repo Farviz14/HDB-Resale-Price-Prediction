@@ -54,6 +54,13 @@ overlay_css = f'''
     border: 1px solid #ccc;
     border-radius: 10px;
 }}
+.container-box {{
+    background-color: #000000;  /* Black box */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 20px;
+}}
 </style>
 '''
 
@@ -82,7 +89,10 @@ This app predicts the resale price of HDB flats in Singapore(1990 - 1999).
 Fill in the required details, and the model will predict the estimated price for your preference!
 """)
 
-# Input features
+# Display everything in a black box container
+st.markdown('<div class="container-box">', unsafe_allow_html=True)
+
+# Sidebar Input features
 st.sidebar.header("Enter HDB Info")
 floor_area = st.sidebar.number_input("Floor Area (sqm)", min_value=40.0, max_value=150.0, step=1.0)
 town = st.sidebar.selectbox("Town", [
@@ -113,6 +123,9 @@ st.markdown(f'''
     <div class="grid-item"><strong>Storey Category:</strong> {storey_category}</div>
 </div>
 ''', unsafe_allow_html=True)
+
+# Close the black box container
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Mapping towns to regions
 region_map = {
