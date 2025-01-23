@@ -132,11 +132,13 @@ expected_feature_order = [
 
 st.title("HDB Resale Price Prediction")
 
-# Description
-st.write("""
-This app predicts the resale price of HDB flats in Singapore(1990 - 1999).
+# Description with white text color
+st.markdown('''
+<div style="color: white; font-size: 16px; line-height: 1.5; text-align: justify; padding: 10px; border: 1px solid #ccc; border-radius: 8px; background-color: rgba(0, 0, 0, 0.7); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+This app predicts the resale price of HDB flats in Singapore (1990 - 1999). 
 Fill in the required details, and the model will predict the estimated price for your preference!
-""")
+</div>
+''', unsafe_allow_html=True)
 
 # Sidebar Input features
 st.sidebar.header("Enter HDB Info")
