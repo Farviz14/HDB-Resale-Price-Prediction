@@ -76,8 +76,12 @@ button:hover {{
     background-color: #FF4500; /* Darker shade on hover */
 }}
 
-h1, h2, .stApp {{
-    color: red; /* Set header font color to red */
+h1 {{
+    color: white;
+}}
+
+h2 {{
+    color: white;
 }}
 
 .stSidebar {{
@@ -125,7 +129,7 @@ expected_feature_order = [
     'storey_category_Mid Storey', 'storey_category_High Storey', 'lease_remaining'
 ]
 
-st.title("🏙️ HDB Resale Price Prediction")
+st.title("🏙 HDB Resale Price Prediction")
 
 # Description
 st.write("""
