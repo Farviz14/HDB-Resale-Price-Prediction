@@ -91,7 +91,7 @@ h2 {{
 
 .stSidebar .stTextInput input, .stSidebar .stSelectbox select {{
     background-color: #555555;  /* Dark background for inputs */
-    color: white;
+    color: black;
 }}
 
 .stSidebar .stSlider input {{
