@@ -98,8 +98,8 @@ h2 {{
 }}
 
 .output-container {{
-    background-color: rgba(0, 255, 0, 0.6); /* Semi-transparent green background */
-    color: white;
+    background-color: rgba(0, 128, 0, 0.7); /* Darker green */
+    color: black; /* Black text color */
     font-size: 24px;
     font-weight: bold;
     padding: 20px;
