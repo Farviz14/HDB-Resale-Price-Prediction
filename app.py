@@ -130,7 +130,7 @@ expected_feature_order = [
     'storey_category_Mid Storey', 'storey_category_High Storey', 'lease_remaining'
 ]
 
-st.title("HDB Resale Price Prediction")
+st.title(" 🏬 HDB Resale Price Prediction")
 
 # Description with white text color
 st.markdown('''
