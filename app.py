@@ -76,12 +76,8 @@ button:hover {{
     background-color: #FF4500; /* Darker shade on hover */
 }}
 
-h1 {{
-    color: white;
-}}
-
-h2 {{
-    color: white;
+h1, h2, .stApp {{
+    color: red; /* Set header font color to red */
 }}
 
 .stSidebar {{
