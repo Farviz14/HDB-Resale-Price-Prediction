@@ -116,7 +116,7 @@ h2 {{
 st.markdown(overlay_css, unsafe_allow_html=True)
 
 # Load the trained model
-model = joblib.load("Resale_Price_Final(RF).pkl")
+model = joblib.load("ResalePrice_Final.pkl")
 
 # Feature order from the trained model
 expected_feature_order = [
