@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 import base64
+
 # Function to encode the image in base64
 def get_base64_image(image_path):
     with open(image_path, "rb") as file:
@@ -33,15 +34,31 @@ overlay_css = f'''
     background-color: rgba(0, 255, 0, 0.5); /* Adjust the transparency and color */
     z-index: -1; /* Send it behind other elements */
 }}
+.input-box {{
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #000000; /* Set the background to black */
+    color: #ffffff; /* Set text color to white */
+    margin-bottom: 20px;
+}}
+.grid-container {{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}}
+.grid-item {{
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}}
 </style>
 '''
 
-# Apply the background image and overlay
+# Apply the background image, overlay, and custom styling
 st.markdown(overlay_css, unsafe_allow_html=True)
-
-
-
-
 
 # Load the trained model
 model = joblib.load("ResalePrice_compressed.pkl")
@@ -57,7 +74,7 @@ expected_feature_order = [
     'storey_category_Mid Storey', 'storey_category_High Storey', 'lease_remaining'
 ]
 
-st.title("HDB Resale Price Prediction")
+st.title("🏙️ HDB Resale Price Prediction")
 
 # Description
 st.write("""
@@ -65,7 +82,7 @@ This app predicts the resale price of HDB flats in Singapore(1990 - 1999).
 Fill in the required details, and the model will predict the estimated price for your preference!
 """)
 
-# Input features
+# Sidebar Input features
 st.sidebar.header("Enter HDB Info")
 floor_area = st.sidebar.number_input("Floor Area (sqm)", min_value=40.0, max_value=150.0, step=1.0)
 town = st.sidebar.selectbox("Town", [
@@ -83,6 +100,19 @@ flat_model = st.sidebar.selectbox("Flat Model", [
 ])
 lease_remaining = st.sidebar.slider("Lease Remaining (Years)", min_value=70, max_value=99, step=1)
 storey_category = st.sidebar.selectbox("Storey Category", ["Low Storey", "Mid Storey", "High Storey"])
+
+# Display user inputs in a grid layout
+st.subheader("Your Selection")
+st.markdown(f'''
+<div class="grid-container">
+    <div class="grid-item"><strong>Floor Area (sqm):</strong> {floor_area}</div>
+    <div class="grid-item"><strong>Town:</strong> {town}</div>
+    <div class="grid-item"><strong>Flat Type:</strong> {flat_type}</div>
+    <div class="grid-item"><strong>Flat Model:</strong> {flat_model}</div>
+    <div class="grid-item"><strong>Lease Remaining (Years):</strong> {lease_remaining}</div>
+    <div class="grid-item"><strong>Storey Category:</strong> {storey_category}</div>
+</div>
+''', unsafe_allow_html=True)
 
 # Mapping towns to regions
 region_map = {
